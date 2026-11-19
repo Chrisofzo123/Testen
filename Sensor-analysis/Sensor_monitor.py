@@ -23,7 +23,15 @@ def getal_invoeren(vraag):
 
 # 1. Gebruikers input
 def gebruiker_input():
-    "Hier word er gevraagd naar de gebruikers inputs en worden checks uitgevoerd of ze correcte waardes invoeren"
+    """Hier word er gevraagd naar de gebruikers inputs en worden checks uitgevoerd of ze correcte waardes invoeren
+    :param type: Het type sensor dat gemeten word
+    :param aantal: Het aantal metingen dat gedaan word
+    :param Min: De minimale waarde van de sensor
+    :param Max: De maximale waarde van de sensor
+    :param Waarschuw: De drempelwaarde voor waarschuwingen
+    :param richting: De richting van de waarschuwing (boven of onder de drempel)
+    :return: De gebruikers inputs als een tuple (type, aantal, Min, Max, Waarschuw, richting)
+    """
 
     type = input("Wat is er gemeten?: ")
 
