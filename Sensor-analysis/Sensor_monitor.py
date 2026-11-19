@@ -60,7 +60,12 @@ def gebruiker_input():
 
 # 2. Random waardes
 def waardes_genereren(aantal, minimum, maximum):
-    """Hier worden random waardes gegenereerd en vervolgens ge-returned als waardes. ook worden ze afgerond naar 2 decimalen"""
+    """Hier worden random waardes gegenereerd en vervolgens ge-returned als waardes. ook worden ze afgerond naar 2 decimalen
+    :param aantal: Het aantal metingen dat gegenereerd moet worden  
+    :param minimum: De minimale waarde voor de metingen
+    :param maximum: De maximale waarde voor de metingen
+    :return: Een lijst met gegenereerde metingen
+    """
     random.seed(1)
 
     waardes = []
