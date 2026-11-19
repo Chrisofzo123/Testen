@@ -8,7 +8,9 @@ print(os.getcwd())
 
 
 def getal_invoeren(vraag):
-    """Hier word een check gedaan of het cijfer dat word ingevoerd ook wel echt een goed cijfer is"""
+    """Hier word een check gedaan of het cijfer dat word ingevoerd ook wel echt een goed cijfer is
+    :param vraag: De vraag die aan de gebruiker word gesteld
+    :return: Het ingevoerde getal als float"""
     getal = input(vraag)
 
     while True:
@@ -86,7 +88,11 @@ def waardes_genereren(aantal, minimum, maximum):
 
 # 3. Uitschieters zoeken
 def find_outliers(metingen, threshold, richting):
-    """Hier worden de uitschieters die boven de threshold waarde zitten gevonden, gemarkeert en ge-returned met: uitschieters"""
+    """Hier worden de uitschieters die boven de threshold waarde zitten gevonden, gemarkeert en ge-returned met: uitschieters
+    :param metingen: De lijst met metingen
+    :param threshold: De drempelwaarde voor waarschuwingen
+    :param richting: De richting van de waarschuwing (boven of onder de drempel)
+    :return: Een lijst met uitschieters"""
     uitschieters = []
 
     for meting in metingen:
@@ -100,7 +106,11 @@ def find_outliers(metingen, threshold, richting):
 
 # 4. Data
 def Analyze_NumPy(metingen, threshold, richting):
-    """hier word met NumPy de correcte waardes herkent en gemarkeert, vervolgens ge-returned met correcte benamingen"""
+    """hier word met NumPy de correcte waardes herkent en gemarkeert, vervolgens ge-returned met correcte benamingen
+    :param metingen: De lijst met metingen
+    :param threshold: De drempelwaarde voor waarschuwingen
+    :param richting: De richting van de waarschuwing (boven of onder de drempel)
+    :return: Een tuple met de analyse resultaten"""
     metingen = np.array(metingen)
     aantal = len(metingen)
     gemiddelde = np.mean(metingen)
@@ -117,7 +127,10 @@ def Analyze_NumPy(metingen, threshold, richting):
 
 # 5. Grafiek
 def Grafiek_maken(metingen, waarschuwingsdrempel, sensortype):
-    """Hier word een grafiek gemaakt en de juiste parameters gekozen"""
+    """Hier word een grafiek gemaakt en de juiste parameters gekozen
+    :param metingen: De lijst met metingen
+    :param waarschuwingsdrempel: De drempelwaarde voor waarschuwingen
+    :param sensortype: Het type sensor dat gemeten word"""
     plt.plot(range(1, len(metingen) + 1), metingen, label=f"{sensortype} metingen")
     plt.axhline(waarschuwingsdrempel,
             label="Waarschuwingsdrempel",
@@ -133,7 +146,9 @@ def Grafiek_maken(metingen, waarschuwingsdrempel, sensortype):
 
 # 6. Histogram maken
 def histogram_maken(metingen, sensortype):
-    """Hier word een histogram gemaakt en de juiste parameters gekozen"""
+    """Hier word een histogram gemaakt en de juiste parameters gekozen
+    :param metingen: De lijst met metingen
+    :param sensortype: Het type sensor dat gemeten word"""
     aantallen, grenzen, _ = plt.hist(metingen, bins="auto")
     plt.title(f"Verdeling {sensortype} metingen")
     plt.xlabel(f"{sensortype}-waarde")
@@ -145,7 +160,9 @@ def histogram_maken(metingen, sensortype):
 
 # 7. Data opslaan
 def Opslaan(metingen, sensortype):
-    """Hier worden de gegevens in het CVS bestand geplaatst met de correcte benaming"""
+    """Hier worden de gegevens in het CVS bestand geplaatst met de correcte benaming
+    :param metingen: De lijst met metingen
+    :param sensortype: Het type sensor dat gemeten word"""
     
     try:
         with open("sensor_metingen.csv", "w", newline="") as bestand:
@@ -160,7 +177,8 @@ def Opslaan(metingen, sensortype):
 
 # 8. CSV inladen
 def CSV_inladen():
-    """Hier worden gegevens in het CSV bestand gelezen[1] """
+    """Hier worden gegevens in het CSV bestand gelezen[1]
+     :return: Een lijst met ingelezen waardes   """
     waardes = []
 
     try:
@@ -178,7 +196,8 @@ def CSV_inladen():
 
 # 9. Hoofdprogramma
 def main():
-    """Dit is het hoofd programma, hier kunt u de keuze maken uit nieuwe gegevens genereren of oude inladen. ook word hier het grafiek gemaakt en alle informatie geprint"""
+    """Dit is het hoofd programma, hier kunt u de keuze maken uit nieuwe gegevens genereren of oude inladen. 
+    ook word hier het grafiek gemaakt en alle informatie geprint"""
 
     keuze = input("Wilt u nieuwe gegevens of oude gegevens inladen (nieuw/inladen): ")
     keuze = keuze.lower()
