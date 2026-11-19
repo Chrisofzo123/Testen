@@ -236,7 +236,7 @@ def main():
     print("Aantal waarschuwingen:", statistieken[5])
 
 
-    
+    print("een test voor de pull")
     
 
 # Programma starten
